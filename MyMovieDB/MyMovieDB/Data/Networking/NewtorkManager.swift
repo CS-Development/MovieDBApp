@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+enum NetworkError: Error {
+    case invalidResponse
+    case nilResponse
+}
+
+
+final class NetworkManager<T: Codable> {
+    
+    static func fetch(completion: @escaping(Result<T, NetworkError>)->Void ) {
+
+    }
+
+}
