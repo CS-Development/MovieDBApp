@@ -54,6 +54,7 @@ final class MovieDownloadManager: ObservableObject {
             switch result {
             case .success(let movieResponse):
                 self.movies = movieResponse.results
+                print(self.movies)
             case .failure(let err):
                 print(err)
             }

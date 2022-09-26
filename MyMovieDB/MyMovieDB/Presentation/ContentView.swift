@@ -8,14 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var searchTerm = ""
+    @ObservedObject var movieManager = MovieDownloadManager()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            TextField("Search...", text: $searchTerm)
+            List(movieManager.movies.filter{
+                searchTerm.isEmpty
+                ? true
+                : $0.title?
+                    .lowercased()
+                    .localizedStandardContains(searchTerm.lowercased()) ?? true
+            }) { movie in
+                Text(movie.titleWithLanguage)
+                    .listRowBackground(Color.clear)
+            }
+            .background(Color.white)
         }
         .padding()
+        .onAppear {
+            movieManager.getNowPlaying()
+        }
     }
 }
 

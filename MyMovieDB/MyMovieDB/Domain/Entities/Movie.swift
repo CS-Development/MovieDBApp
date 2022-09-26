@@ -13,7 +13,7 @@ struct MovieResponse: Codable {
     var results: [Movie]
 }
 
-struct Movie: Codable {
+struct Movie: Codable, Identifiable {
     var id: Int?
     var title: String?
     var original_language: String?
@@ -43,6 +43,6 @@ struct Movie: Codable {
         guard let title = title, let lang = original_language else {
             return ""
         }
-        return "\(title)(\(lang))"
+        return "\(title) (\(lang))"
     }
 }
