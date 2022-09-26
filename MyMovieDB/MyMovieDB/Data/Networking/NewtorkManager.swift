@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum NetworkError: Error {
     case invalidResponse
@@ -15,8 +16,22 @@ enum NetworkError: Error {
 
 final class NetworkManager<T: Codable> {
     
-    static func fetch(completion: @escaping(Result<T, NetworkError>)->Void ) {
-
+    static func fetch(from urlString: String, completion: @escaping(Result<T, NetworkError>)->Void ) {
+        AF.request(urlString).responseDecodable(of: T.self) { response in
+            if response.error != nil {
+                completion(.failure(.invalidResponse))
+                print(response.error!)
+                // Logging!
+                return
+            }
+            
+            if let payload = response.value {
+                completion(.success(payload))
+                return
+            }
+            
+            completion(.failure(.nilResponse))
+        }
     }
 
 }
