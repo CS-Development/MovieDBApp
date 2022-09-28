@@ -17,6 +17,7 @@ struct ContentView: View {
                 Image(systemName: "magnifyingglass")
                 TextField("Search...", text: $searchTerm)
             }
+            Text("List of popular films")
             List(movieManager.movies.filter{
                 searchTerm.isEmpty
                 ? true
