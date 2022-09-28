@@ -13,7 +13,10 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            TextField("Search...", text: $searchTerm)
+            HStack {
+                Image(systemName: "magnifyingglass")
+                TextField("Search...", text: $searchTerm)
+            }
             List(movieManager.movies.filter{
                 searchTerm.isEmpty
                 ? true
