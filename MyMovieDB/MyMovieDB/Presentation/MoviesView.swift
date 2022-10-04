@@ -25,7 +25,7 @@ struct MoviesView: View {
                     .lowercased()
                     .localizedStandardContains(searchTerm.lowercased()) ?? true
             }) { movie in
-                Text(movie.titleWithLanguage)
+                MovieCell(movie: movie)
                     .listRowBackground(Color.clear)
             }
             .background(Color.white)

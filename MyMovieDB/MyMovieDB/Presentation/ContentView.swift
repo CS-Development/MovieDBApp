@@ -19,6 +19,7 @@ struct ContentView: View {
             .navigationBarItems(trailing: HStack {
                 settingsButton
             })
+            .navigationTitle("Movies")
             .sheet(isPresented: $showSettings) {
                 SettingsView()
             }
