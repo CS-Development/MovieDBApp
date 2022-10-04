@@ -11,9 +11,9 @@ struct MovieCell: View {
     let movie: Movie
     
     var body: some View {
-        HStack {
+        HStack(alignment: .top, spacing: 20) {
             moviePoster
-            VStack {
+            VStack(alignment: .leading, spacing: 0) {
                 movieTitle
                     .padding(.bottom, 5)
                 HStack {
