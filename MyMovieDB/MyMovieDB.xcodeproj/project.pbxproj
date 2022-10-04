@@ -29,6 +29,7 @@
 		245B36CD28E216AD00F75B38 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 245B36CC28E216AD00F75B38 /* Alamofire */; };
 		245B36CF28E21A3100F75B38 /* MovieDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245B36CE28E21A3100F75B38 /* MovieDownloadManager.swift */; };
 		24D115DC28EC9B640033EA3F /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D115DB28EC9B640033EA3F /* HomeTabView.swift */; };
+		24D115DE28ECB2610033EA3F /* MovieReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D115DD28ECB2610033EA3F /* MovieReviewManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		2415A70A28D8EE88001745EC /* NewtorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewtorkManager.swift; sourceTree = "<group>"; };
 		245B36CE28E21A3100F75B38 /* MovieDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDownloadManager.swift; sourceTree = "<group>"; };
 		24D115DB28EC9B640033EA3F /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
+		24D115DD28ECB2610033EA3F /* MovieReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 				2415A70828D8EE77001745EC /* API.swift */,
 				2415A70A28D8EE88001745EC /* NewtorkManager.swift */,
 				245B36CE28E21A3100F75B38 /* MovieDownloadManager.swift */,
+				24D115DD28ECB2610033EA3F /* MovieReviewManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				2415A6FD28D8ECEF001745EC /* MovieDetailView.swift in Sources */,
 				2415A6FF28D8ED20001745EC /* MovieReviewView.swift in Sources */,
 				2415A6C428D8EB1E001745EC /* MyMovieDBApp.swift in Sources */,
+				24D115DE28ECB2610033EA3F /* MovieReviewManager.swift in Sources */,
 				245B36CF28E21A3100F75B38 /* MovieDownloadManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,6 +21,13 @@ struct MovieDetailView: View {
                     moviePosterView
                     movieOverview
                     // reviews
+                    NavigationLink {
+                        MovieReviewView(movie: movie)
+                    } label: {
+                        Text("Reviews")
+                    }
+
+                    
                     // cast
                     Spacer()
                 }
