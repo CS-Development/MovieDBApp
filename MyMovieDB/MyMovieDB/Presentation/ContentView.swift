@@ -9,13 +9,28 @@ import SwiftUI
 
 struct ContentView: View {
 
+    @State private var showSettings = false
     
     var body: some View {
         NavigationView {
             Group {
                 HomeTabView()
             }
-            //.sheet(settings)
+            .navigationBarItems(trailing: HStack {
+                settingsButton
+            })
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
+            }
+        }
+    }
+    
+    private var settingsButton: some View {
+        Button {
+            showSettings.toggle()
+        } label: {
+            Image(systemName: "gear")
+                .foregroundColor(.gray)
         }
     }
 }
