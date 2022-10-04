@@ -25,8 +25,12 @@ struct MoviesView: View {
                     .lowercased()
                     .localizedStandardContains(searchTerm.lowercased()) ?? true
             }) { movie in
-                MovieCell(movie: movie)
-                    .listRowBackground(Color.clear)
+                NavigationLink{
+                    MovieDetailView(movie: movie)
+                } label: {
+                    MovieCell(movie: movie)
+                        .listRowBackground(Color.clear)
+                }
             }
             .background(Color.white)
         }
