@@ -8,7 +8,18 @@
 import SwiftUI
 
 struct MovieDetailView: View {
+    
+    @StateObject private var loader: ImageLoader
+    
     let movie: Movie
+    
+    init(movie: Movie) {
+        self.movie = movie
+        
+        _loader = StateObject(wrappedValue: ImageLoader(url: URL(string: movie.posterPath)!,
+                                                        cache: Environment(\.imageCache).wrappedValue
+                                                       ))
+    }
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -35,6 +46,9 @@ struct MovieDetailView: View {
                 .padding(.horizontal, 32)
             }
             .padding(.horizontal, 32)
+            .onAppear {
+                loader.load()
+            }
         }
     }
     
@@ -73,13 +87,27 @@ struct MovieDetailView: View {
     
     
     // TODO: replace with better solution
+    private var imageView: some View {
+        Group {
+            if loader.image != nil {
+                Image(uiImage: loader.image!)
+                    .resizable()
+            } else {
+                Rectangle().foregroundColor(Color.gray.opacity(0.4))
+            }
+        }
+    }
+    
     private var moviePoster: some View {
+        /*
         AsyncImage(url: URL(string: movie.posterPath)) { image in
             image.resizable().scaledToFill()
         } placeholder: {
             ProgressView()
         }
+         */
         
+        imageView
         .animation(.easeInOut(duration: 0.5))
         .transition(.opacity)
         .cornerRadius(20)
