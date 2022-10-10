@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State private var showSettings = false
+    @State var showSettings = false
     
     var body: some View {
         NavigationView {
@@ -21,7 +21,7 @@ struct ContentView: View {
             })
             .navigationTitle("Movies")
             .sheet(isPresented: $showSettings) {
-                SettingsView()
+                SettingsView(isPresented: $showSettings)
             }
         }
     }
