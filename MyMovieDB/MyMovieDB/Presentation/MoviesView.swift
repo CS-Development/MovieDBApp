@@ -17,7 +17,7 @@ struct MoviesView: View {
                 Image(systemName: "magnifyingglass")
                 TextField("Search...", text: $searchTerm)
             }
-            Text("List of popular films...")
+            Text("List of now playing movies...")
             List(movieManager.movies.filter{
                 searchTerm.isEmpty
                 ? true
